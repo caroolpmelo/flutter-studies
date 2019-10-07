@@ -1,71 +1,73 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Frases do dia App',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
-      home: MyHomePage(title: 'Frases da noite'),
-    );
-  }
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: HomeStateful(),
+  ));
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+class HomeStateful extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomeStatefulState createState() => _HomeStatefulState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _randomNum = 0;
-  List _frases = [
-    'Estude seeempre!',
-    'Beba água tinki winki!',
-    'Não fume!',
-    "Don't do drugs!"
-  ];
-
-  void _randomCounter() {
-    setState(() {
-      _randomNum = new Random().nextInt(4);
-    });
-  }
+class _HomeStatefulState extends State<HomeStateful> {
+  var _texto = 'Carol';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Insta'),
+        backgroundColor: Colors.green,
       ),
-      body: Center(
+      body: Container(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Pressione o botão para gerar uma frase.',
+            RaisedButton(
+              onPressed: () {
+                setState(() {
+                  _texto = 'Curso flutter';
+                });
+              },
+              color: Colors.amber,
+              child: Text('Clique aqui'),
             ),
-            Text(
-              _frases[_randomNum],
-              style: Theme.of(context).textTheme.display1,
-            ),
+            Text('Nome: $_texto')
           ],
         ),
+      ) 
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var _titulo = 'Insta';
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_titulo),
+        backgroundColor: Colors.green,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _randomCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Text('Conteúdo Principal'),
+      ), 
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.lightGreen,
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Row(
+            children: <Widget>[
+              Text('Texto 1'),
+              Text('Texto 2'),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
