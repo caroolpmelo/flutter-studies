@@ -1,4 +1,4 @@
-package com.example.primeiro_projeto
+package com.example.frases_do_dia
 
 import android.os.Bundle
 

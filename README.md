@@ -1,8 +1,10 @@
-# primeiro_projeto
+# Flutter Studies
 
-A new Flutter project.
+Flutter projects for study, based on the Udemy course https://www.udemy.com/course/desenvolvimento-android-e-ios-com-flutter/.
 
-## Getting Started
+## frases_do_dia
+
+### Getting Started
 
 This project is a starting point for a Flutter application.
 
